@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Application 1</title>
+</head>
+<body>
+    Job Type: <input type="text" id="jobType" /><br />
+    Payload:  <input type="text" id="payload" /><br />
+    <input type="button" id="startJob" value="Start a Job" /><br />
+    <br />
+    <br />
+    <table id="jobs">
+        <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </table>
+    <!--Script references. -->
+    <!--Reference the jQuery library. -->
+    <script src="/Scripts/jquery-2.1.1.min.js"></script>
+    <!--Reference the SignalR library. -->
+    <script src="/Scripts/jquery.signalR-2.1.0.min.js"></script>
+    <!--Add script to update the page and send messages.-->
+    <script type="text/javascript">
+        $(function () {
+            var connection = $.hubConnection();
+            var jobsEngine = connection.createHubProxy('JobsHub');
+
+            jobsEngine.on('jobStarting', function (data) {
+                $('#jobs > tbody:last').append('<tr><td>' + data.id + '</td><td>' + data.name + '</td><td id=status_' + data.id + '>Starting</td><td><input id=cancel_' + data.id + ' type="button" value="Cancel Job" /></td></tr>');
+                $('#cancel_' + data.id).click(function() {
+                    $('#status_' + data.id).text('Canceling');
+                    jobsEngine.invoke('cancelJob', data.id);
+                });
+            });
+
+            jobsEngine.on('jobStarted', function (data) {
+                $('#status_' + data.id).text('Started');
+            });
+
+            jobsEngine.on('jobCompleted', function (data) {
+                $('#status_' + data.id).text('Completed');
+            });
+
+            jobsEngine.on('jobCanceled', function (data) {
+                $('#status_' + data.id).text('Canceled');
+            });
+
+            connection.start().done(function () {
+                $('#startJob').click(function () {
+                    jobsEngine.invoke('startJob', $('#jobType').val(), $('#payload').val());
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

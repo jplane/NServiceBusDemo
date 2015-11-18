@@ -1,0 +1,50 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Application 2</title>
+</head>
+<body>
+    <br />
+    <table id="jobs">
+        <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Payload</th>
+            <th>Status</th>
+            <th>Started</th>
+            <th>Duration</th>
+        </tr>
+    </table>
+    <!--Script references. -->
+    <!--Reference the jQuery library. -->
+    <script src="/Scripts/jquery-2.1.1.min.js"></script>
+    <!--Reference the SignalR library. -->
+    <script src="/Scripts/jquery.signalR-2.1.0.min.js"></script>
+    <!--Add script to update the page and send messages.-->
+    <script type="text/javascript">
+        $(function() {
+
+            var connection = $.hubConnection();
+            var jobsEngine = connection.createHubProxy('JobsHub');
+
+            jobsEngine.on('listJobInstancesQueryResults', function (results) {
+                $("#jobs > tbody > tr:not(:has(th))").remove();
+                $.each(results.jobs, function (idx, job) {
+                    $('#jobs > tbody')
+                        .append('<tr><td>' + job.id + '</td><td>' + job.name + '</td><td>' + job.payload + '</td><td>' + job.status + '</td><td>' + job.started + '</td><td>' + job.duration + '</td></tr>');
+                });
+            });
+
+            connection.start().done(function () {
+                setInterval(function() {
+                    jobsEngine.invoke('listJobInstances');
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+
+</html>
