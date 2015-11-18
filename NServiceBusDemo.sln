@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiJi.JobEngine", "TaiJi.JobEngine\TaiJi.JobEngine.csproj", "{4C8910A4-EABD-4767-95B0-62ED7479C033}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooBar.Auditor", "FooBar.Auditor\FooBar.Auditor.csproj", "{A0C8BF44-AF92-41DF-8AEB-525CBFCE371A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiJi.Auditor", "TaiJi.Auditor\TaiJi.Auditor.csproj", "{A0C8BF44-AF92-41DF-8AEB-525CBFCE371A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooBar.Common", "FooBar.Common\FooBar.Common.csproj", "{DB77F3CE-2494-4BA6-8753-7078AB5480FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiJi.Common", "TaiJi.Common\TaiJi.Common.csproj", "{DB77F3CE-2494-4BA6-8753-7078AB5480FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooBar.Framework", "FooBar.Framework\FooBar.Framework.csproj", "{C747CEE4-FCD8-4732-8646-FD6904578F5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaiJi.Framework", "TaiJi.Framework\TaiJi.Framework.csproj", "{C747CEE4-FCD8-4732-8646-FD6904578F5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooBar.JobEngine", "FooBar.JobEngine\FooBar.JobEngine.csproj", "{4C8910A4-EABD-4767-95B0-62ED7479C033}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4C8910A4-EABD-4767-95B0-62ED7479C033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C8910A4-EABD-4767-95B0-62ED7479C033}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C8910A4-EABD-4767-95B0-62ED7479C033}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C8910A4-EABD-4767-95B0-62ED7479C033}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A0C8BF44-AF92-41DF-8AEB-525CBFCE371A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0C8BF44-AF92-41DF-8AEB-525CBFCE371A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C8BF44-AF92-41DF-8AEB-525CBFCE371A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{C747CEE4-FCD8-4732-8646-FD6904578F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C747CEE4-FCD8-4732-8646-FD6904578F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C747CEE4-FCD8-4732-8646-FD6904578F5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C8910A4-EABD-4767-95B0-62ED7479C033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C8910A4-EABD-4767-95B0-62ED7479C033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C8910A4-EABD-4767-95B0-62ED7479C033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C8910A4-EABD-4767-95B0-62ED7479C033}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
